@@ -1,9 +1,9 @@
-//const connectDB = require('./startup/db');
+const connectDB = require('./startup/db');
 const express = require('express');
 const app = express();
 const cors = require('cors')
 
-//connectDB();
+connectDB();
 
 app.use(cors());
 app.use(express.json());
