@@ -3,11 +3,11 @@ const express = require('express');
 const auth = require('../middleware/auth');
 const router = express.Router();
 
-
+// We need to be able to grab the post based on the user_id
 //router.get()
 
 
-router.post('/:user_id/posts/', auth, async(req,res) => {
+router.post('/:_id/posts/', auth, async(req,res) => {
     try {
         const{error} = validatePost(req.body);
         if (error){
