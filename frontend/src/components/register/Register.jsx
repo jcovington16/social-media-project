@@ -1,8 +1,8 @@
 import React from 'react'
 
-//This is our login form
+// This is our register form
 
-function Login() {
+function Register() {
     return (
         <div>
             
@@ -10,4 +10,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Register;
