@@ -4,33 +4,19 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
-router.get('/listOfFriends/:_id/', auth, async (req, res) => {
-    try{
-        const activeFriends = await User.find({listOfFriends:req.params._id})
-        return res.send(activeFriends);
-    } catch(ex) {
-        return res.status(500).send(`Internal Server Error: ${ex}`)
-    }
-});
+// TODO: Make a put route for all of the different list of friends. Will get to this soon.
 
-router.get('/listOfRequests/:_id/', auth, async (req, res) => {
-    try{
-        const frinedRequests = await User.find({listOfRequests:req.params._id})
-        return res.send(frinedRequests);
-    } catch(ex) {
-        return res.status(500).send(`Internal Server Error: ${ex}`)
-    }
-});
-
-router.get('/requestedList/:_id/', auth, async (req, res) => {
+router.put('/:_id/requestedList/', auth, async (req, res) => {
     try{
         const requestedFriends = await User.find({requestedList:req.params._id})
+        //Dot notation
         return res.send(requestedFriends);
     } catch(ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`)
     }
 });
 
+// TODO: Create a delete route
 
 router.post('/', async (req, res) => {
     try {

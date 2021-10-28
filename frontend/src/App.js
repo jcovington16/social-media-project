@@ -7,8 +7,6 @@ import MainPage from './components/mainpage/MainPage';
 import jwtDecode from 'jwt-decode';
 
 
-
-
 function App() {
 
   const [user, setUser] = useState()
