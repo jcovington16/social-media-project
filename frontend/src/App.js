@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
+import MainPage from './components/mainpage/MainPage';
 import jwtDecode from 'jwt-decode';
 
 
@@ -27,6 +28,7 @@ function App() {
       <Switch>
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
+        <Route path='/home' component={MainPage} />
       </Switch>
     </div>
   );
