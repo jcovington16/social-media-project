@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
             .header('x-auth-token', token)
             .header('access-control-expose-headers', 'x-auth-token')
             .send({ _id: user._id, name: user.name, email: user.email });
-           // needs aaccount alert or sign in
+           
 
     } catch (ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);

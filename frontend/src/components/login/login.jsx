@@ -17,13 +17,16 @@ function Login() {
 
     const handleSubmit = (event) =>  {
         // store the states in the form data
-        axios.post('http://localhost:5001/api/auth/', login);
         event.preventDefault();
-
-        }
+        axios.post('http://localhost:5001/api/auth/', login)
+            .then (response => {
+                const responseData = response.data;
+                localStorage.setItem('token', responseData.token);
+                })
+    }
     return (
         <div>
-             <form>
+             <form onSubmit={handleSubmit}>
                 <h3>Sign In</h3>
 
                 <div className="form-group">
