@@ -7,7 +7,9 @@ const router = express.Router();
 //router.get()
 
 
-router.post('/:_id/posts/', auth, async(req,res) => {
+
+
+router.post('/:_id/posts/', async(req,res) => {
     try {
         const{error} = validatePost(req.body);
         if (error){
@@ -24,5 +26,40 @@ router.post('/:_id/posts/', auth, async(req,res) => {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }
 });
+
+//delete a post 
+
+router.delete('/:_id', async(req, res) =>{
+    try{
+        const post = await Post.findById(req.params._id);
+        if(post.userId === req.body.userId){
+            await post.deleteOne();
+            res.status(200).json('the post has been deleted')
+        }else{
+            res.status(403).json('you can only delete your post');
+        }
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
+
+//like/dislike a post 
+
+router.put("/:_id/like", async(res,req) =>{
+    try{
+    const post = await Post.findById(req.params._id)
+    if(!post.likes.includes(req.body.userId)){
+        await post.updateOne({$push:{likes:req.body.userId}});
+        res.status(200).json("the post has been liked")
+    }else{
+        await post.updateOne({$pull:{likes:req.body.userId}});
+        res.status(200).json('the post has been disliked')
+    }
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
+
+
 
 module.exports = router;
