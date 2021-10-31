@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
-const { array } = require('joi');
 
 const postSchema = new mongoose.Schema({
     // userId: {type: String, required: true},
@@ -21,4 +20,5 @@ function validatePost(post) {
 };
 
 exports.Post = Post;
+exports.postSchema = postSchema;
 exports.validatePost = validatePost;
