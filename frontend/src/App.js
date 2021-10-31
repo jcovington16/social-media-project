@@ -4,10 +4,10 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import Login from './components/login/login';
 import Register from './components/register/Register';
+//import MainPage from './components/mainpage/MainPage';
 import Profile from './components/profile/profile';
+import NotFound from './components/not-found/NotFound';
 import jwtDecode from 'jwt-decode';
-
-
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
     const jwt = localStorage.getItem('token');
     try{
       setUser(jwtDecode(jwt));
+      
     } catch {
   
     }
@@ -26,17 +27,17 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path='/profile' component={Profile}
-          render {...props => {
+        <Route path='/profile' render={props => {
             if(!user) {
-              return <Redirect to= "/login" />;
+              return <Redirect to="/not-found" />;
             } else {
-              return <Profile {...props} user={user} />
+              return <Profile user={user} />
             }  
           }}
         />  
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
+        <Route path='/not-found' component={NotFound} />
       </Switch>
     </div>
   );

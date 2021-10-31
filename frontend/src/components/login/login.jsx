@@ -21,12 +21,15 @@ function Login() {
         axios.post('http://localhost:5001/api/auth/', login)
             .then (response => {
                 const responseData = response.data;
-                localStorage.setItem('token', responseData.token);
-                })
+                localStorage.setItem('token', responseData);
+                console.log(responseData);
+            })
+            //window.location='/';
     }
+    
     return (
         <div>
-             <form onSubmit={handleSubmit}>
+             <form onSubmit={(event)=>handleSubmit(event)}>
                 <h3>Sign In</h3>
 
                 <div className="form-group">
