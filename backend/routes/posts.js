@@ -30,8 +30,8 @@ router.post('/:_id/posts/', async(req,res) => {
             timeStamp: req.body.timeStamp
         });
         user.posts.push(post);
-        await post.save();
-        return res.send(post)
+        await user.save();
+        return res.send(user.posts)
     } catch(ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }
