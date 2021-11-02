@@ -6,11 +6,12 @@ const bcrypt = require('bcrypt');
 
 // TODO: Make a put route for all of the different list of friends. Will get to this soon.
 
-router.put('/:_id/requestedList/', auth, async (req, res) => {
+router.get('/:_id/listOfFriends/', auth, async (req, res) => {
     try{
-        const requestedFriends = await User.find({requestedList:req.params._id})
-        //Dot notation
-        return res.send(requestedFriends);
+        const user = await User.findById(req.params._id);
+        const userFriends = user.listOfFriends
+        
+        return res.send(userFriends);
     } catch(ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`)
     }
