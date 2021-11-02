@@ -5,7 +5,6 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 // TODO: Make a put route for all of the different list of friends. Will get to this soon.
-
 router.get('/:_id/listOfFriends/', auth, async (req, res) => {
     try{
         const user = await User.findById(req.params._id);
@@ -14,6 +13,41 @@ router.get('/:_id/listOfFriends/', auth, async (req, res) => {
         return res.send(userFriends);
     } catch(ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`)
+    }
+});
+
+router.get('/:_id/listOfRequests/', auth, async (req, res) => {
+    try{
+        const user = await User.findById(req.params._id);
+        const listRequest = user.listOfRequests
+        
+        return res.send(listRequest);
+    } catch(ex) {
+        return res.status(500).send(`Internal Server Error: ${ex}`)
+    }
+});
+
+router.get('/:_id/requestedList/', auth, async (req, res) => {
+    try{
+        const user = await User.findById(req.params._id);
+        const requestedFriends = user.requestedList
+        
+        return res.send(requestedFriends);
+    } catch(ex) {
+        return res.status(500).send(`Internal Server Error: ${ex}`)
+    }
+});
+
+router.put('/:_id/listOfRequests/user_id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params._id);
+        const friend = await User.findById(req.params.user_id);
+
+        user.listOfFriends.push(friend);
+        await user.save();
+        return res.send(user.listOfFriends);
+    } catch(ex) {
+        return res.status(500).send(`Internal Server Error: ${ex}`);
     }
 });
 
