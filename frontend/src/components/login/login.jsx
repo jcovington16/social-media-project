@@ -21,17 +21,10 @@ const Login = () => {
         event.preventDefault();
         axios.post('http://localhost:5001/api/auth/', login)
             .then (response => {
-<<<<<<< Updated upstream
                 const responseData = response.data;
                 localStorage.setItem('token', responseData);
-                window.location = '/profile';
+                window.location = '/home';
             })     
-=======
-                localStorage.setItem('token', response.data);
-                window.location='/profile';              
-            })
-            
->>>>>>> Stashed changes
     }
     
     return (
