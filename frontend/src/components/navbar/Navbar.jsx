@@ -8,7 +8,7 @@ const Navbar = ({user}) => {
     return (
         <div className="navbar navbar-expand-lg" >
             {/* <h4>Nav Bar for: {user.name}</h4> */}
-            <ul className="navbar-nav bg-dark">
+            <ul className="navbar-nav">
                 <li>
                     <Link to='/'>Home</Link>
                 </li>

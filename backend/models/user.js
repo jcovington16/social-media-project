@@ -13,9 +13,9 @@ const userSchema = new mongoose.Schema({
     requestedList: {type: [], default: 0},
     dateJoined: {type: Date, default: Date.now()},
     online: {type: Boolean, default: false},
-    profileImg: {type: String},
+    profileImg: {type: Buffer},
     profileBio:{type: String},
-    birthDate: {type:Date}
+    location: {type:String}
 })
 
 userSchema.methods.generateAuthToken = function() {

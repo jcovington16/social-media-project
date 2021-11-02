@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState} from 'react';
  
 
@@ -15,6 +16,7 @@ const handleChange = (event) => {
     const handleSubmit = (e) =>  {
         // store the states in the form data
         e.preventDefault();
+        axios.put(`localhost:5001/api/users${user._id}`)
         
                   
             }

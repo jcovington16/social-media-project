@@ -21,10 +21,10 @@ const Login = () => {
         event.preventDefault();
         axios.post('http://localhost:5001/api/auth/', login)
             .then (response => {
-                const responseData = response.data;
-                localStorage.setItem('token', responseData);
-                window.location = '/home';
-            })     
+                localStorage.setItem('token', response.data);
+                window.location='/profile';              
+            })
+            
     }
     
     return (

@@ -42,7 +42,7 @@ function App() {
         <Route path='/register' component={Register} />
         <Route path='/login' component={Login} />
         <Route path='/not-found' component={NotFound} />
-
+        <Route path='/logout' component={Logout} />
       </Switch>
     </div>
   );
