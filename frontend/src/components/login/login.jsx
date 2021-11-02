@@ -3,7 +3,7 @@ import axios from 'axios';
 
 //This is our login form
 
-function Login() {
+const Login = () => {
 
     const [login, setLogin] = useState({
         email: "",
@@ -22,9 +22,8 @@ function Login() {
             .then (response => {
                 const responseData = response.data;
                 localStorage.setItem('token', responseData);
-                console.log(responseData);
-            })
-            //window.location='/';
+                window.location = '/profile';
+            })     
     }
     
     return (

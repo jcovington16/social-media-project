@@ -17,21 +17,25 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem('token');
     try{
-      setUser(jwtDecode(jwt));
-      
+
+      const decode = jwtDecode(jwt);
+      setUser(decode)
+
     } catch {
-  
+
     }
-  },[])
+
+  }, []);
 
   return (
     <div className="App">
       <Switch>
         <Route path='/profile' render={props => {
-            if(!user) {
-              return <Redirect to="/not-found" />;
+            if(user) {
+              return <Profile {...props} user={user} />
+              
             } else {
-              return <Profile user={user} />
+              return <Route component={NotFound} />
             }  
           }}
         />  
