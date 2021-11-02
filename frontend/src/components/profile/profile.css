@@ -1,0 +1,11 @@
+#biopic {
+    width:200px;
+    height: 200px;
+    display:inline-block;
+    border-radius: 50%;
+    border-color:black;
+    border-width:thick
+}
+.container {
+    padding: 2%;
+}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
+
 //This is our login form
 
 const Login = () => {
@@ -20,10 +21,17 @@ const Login = () => {
         event.preventDefault();
         axios.post('http://localhost:5001/api/auth/', login)
             .then (response => {
+<<<<<<< Updated upstream
                 const responseData = response.data;
                 localStorage.setItem('token', responseData);
                 window.location = '/profile';
             })     
+=======
+                localStorage.setItem('token', response.data);
+                window.location='/profile';              
+            })
+            
+>>>>>>> Stashed changes
     }
     
     return (
