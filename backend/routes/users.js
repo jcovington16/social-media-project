@@ -71,4 +71,43 @@ router.post('/', async (req, res) => {
 
    //
 
+   router.delete("/:_id/follow", async(req, res) => {
+       if(req.body.userId != req.params._id) {
+           try{
+               const user = await User.findById(req.params._id);
+               const friend = await User.findById(req.body.userId);
+            
+               if(user.friends.includes(req.body.userId)){
+                await user.friends.updateOne({$pop: {friends: req.body.userId}});
+                await friend.friends.updateOne({$pop: {friends: req.params._id}});
+                res.status(200).json("You've successfully removed friend");
+               } else {
+                   res.status(403).json("User is not in your friends list.");
+               }
+
+           } catch(err) {
+               res.status(500).json(err);
+           }
+       }
+   })
+
+   router.delete("/:_id/requests", async(req, res) => {
+       if(req.body.userId != req.params._id) {
+           try {
+               const user = await User.findById(req.params._id);
+               const requestor = await User.findById(req.body.userId);
+
+               if(user.friendRequests.includes(req.body.userId)) {
+                   await user.friendRequests.updateOne({$pop: {friendRequests: req.body.userId}})
+                   res.status(200).json("You've successfully removed request");
+               } else {
+                   res.status(403).json("User is not in your pending request");
+               }
+
+           } catch(err) {
+               res.status(500).json(err);
+           }
+       }
+   })
+
 module.exports = router;
