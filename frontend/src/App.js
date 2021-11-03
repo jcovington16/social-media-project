@@ -5,9 +5,10 @@ import './App.css';
 import Login from './components/login/login';
 import Register from './components/register/Register';
 import MainPage from './components/mainpage/MainPage';
-//import Profile from './components/profile/profile';
+import Profile from './components/profile/profile';
 import NotFound from './components/not-found/NotFound';
 import jwtDecode from 'jwt-decode';
+import Logout from './components/logout/Logout';
 
 
 function App() {
@@ -32,7 +33,6 @@ function App() {
       <Switch>
         <Route path='/home' render={props => {
             if(user) {
-              //return <Profile {...props} user={user} />
               return <MainPage {...props} user={user}/>
             } else {
               return <Route component={NotFound} />
@@ -40,7 +40,8 @@ function App() {
           }}
         />  
         <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
+        <Route path='/' exact component={Login} />
+        <Route path='/profile' render={(props) => <Profile user={user}/>} />
         <Route path='/not-found' component={NotFound} />
         <Route path='/logout' component={Logout} />
       </Switch>

@@ -12,7 +12,7 @@ router.get('/', async (req,res) => {
         return res.send(users);
     });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id/profile', async (req, res) => {
     try {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error);

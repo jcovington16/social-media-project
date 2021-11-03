@@ -3,7 +3,7 @@ import React, {useState} from 'react';
  
 
 
-const BioForm = ({user}) => {
+function BioForm  ({user})  {
 const [profileImg,setProfileImg] = useState();
 const [biotext,setBiotext] = useState('...Anything you would like everyone to know');
 const [location,setLocation]= useState('right here!');
@@ -13,24 +13,23 @@ const handleChange = (event) => {
     setBiotext(biotext);
     setLocation(location);
     };
-    const handleSubmit = (e) =>  {
+    const handleSubmit = (event) =>  {
         // store the states in the form data
-        e.preventDefault();
-        axios.put(`localhost:5001/api/users${user._id}`)
-        
-                  
+        event.preventDefault();
+        axios.put(`localhost:5001/api/users/${user._id}/profile`)      
             }
     return (
         <div>
+            
             Hello {user.name}, and welcome to our site! 
-            <form onSubmit={handleSubmit(e)}>
-            <input type="file" name="bio_pic" ref={user.profileImg} button="submit"/>
+            <form onSubmit={(event)=>handleSubmit(event)}>
+            <input type="file" name="profileImg" value={user.profileImg} onChange={handleChange}/>
           
             Tell us Something about Yourself:
-            <input type="text" name="bio_text" ref={user.bio_text} />
+            <input type="text" name="profileBio" value={user.profileBio} onChange={handleChange} />
 
             Your Location (City, State):
-            <input type="string" name="location" ref={user.location} />
+            <input type="string" name="location" ref={user.location} onChange={handleChange} />
             </form>
             <button>Submit</button>
     

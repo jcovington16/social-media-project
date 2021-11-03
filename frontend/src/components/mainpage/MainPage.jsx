@@ -4,13 +4,13 @@ import Navbar from '../navbar/Navbar';
 import Postings from '../postings/Postings';
 import SideBar from '../sidebar/SideBar';
 
-const MainPage = () =>{
+const MainPage = ({user}) =>{
     return (
         <div className="App">
-            <Navbar />
+            <Navbar user={user}/>
             
             <div className="main__page">
-                <SideBar />
+                <SideBar user={user}/>
                 <Postings />
             </div>
         </div>

@@ -1,11 +1,14 @@
 import React from 'react';
-//import Navbar from "../navbar/Navbar";
+import Navbar from "../navbar/Navbar";
 import "./profile.css";
 import test from './test.jpg';
 
 function Profile ({user})  {
     
     return (
+        <div>
+        <Navbar user={user}/>
+
         <div className="container">
             <div className="col-6 bio-col">
                 <div className="row">
@@ -27,7 +30,7 @@ function Profile ({user})  {
             <div className="col-3" id="list-col">               
                 <p>This is for friends list</p>
             </div>
-
+        </div>
         </div>
     )
 }

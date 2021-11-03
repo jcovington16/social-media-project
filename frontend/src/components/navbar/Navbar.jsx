@@ -7,13 +7,12 @@ import './Navbar.css';
 const Navbar = ({user}) => {
     return (
         <div className="navbar navbar-expand-lg" >
-            {/* <h4>Nav Bar for: {user.name}</h4> */}
             <ul className="navbar-nav">
                 <li>
-                    <Link to='/'>Home</Link>
+                    <Link to='/home'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/profile'>Profile</Link>
+                    <Link to='/profile' >Profile</Link>
                 </li>    
                 
                 {!user &&
@@ -22,7 +21,7 @@ const Navbar = ({user}) => {
                     <Link to='/register'>Register</Link>
                 </li>
                 <li>
-                    <Link to='/login'>Login</Link>
+                    <Link to='/'>Login</Link>
                 </li>
             </React.Fragment>
                 }
@@ -37,23 +36,5 @@ const Navbar = ({user}) => {
 </div>
 );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//     return (
-//         <div>
-//             <h1>This is the navbar</h1>
-//         </div>
-//     )
-// }
 
 export default Navbar;

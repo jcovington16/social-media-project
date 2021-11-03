@@ -22,7 +22,7 @@ const Login = () => {
         axios.post('http://localhost:5001/api/auth/', login)
             .then (response => {
                 localStorage.setItem('token', response.data);
-                window.location='/profile';              
+                window.location='/home';              
             })
             
     }
