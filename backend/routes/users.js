@@ -53,10 +53,17 @@ router.post('/', async (req, res) => {
        if(req.body.userId !== req.params._id){
            try{
                const user = await User.findById(req.params._id);
+<<<<<<< HEAD
                const requester = await User.findById(req.body.userId);
                if(!user.friends.includes(req.body.userId)){
                     await user.updateOne({$push: {friendRequest: req.body.userId}});
                     await requester.updateOne({$push: {friends: req.body.userId}});
+=======
+
+               if(!user.friends.includes(req.body.userId)){
+                    await user.updateOne({$push: {friendRequests: req.body.userId}});
+
+>>>>>>> 560fc71 (We are able to add users to friendRequests list.)
                     res.status(200).json("user has sent friend request");
                }if(user.friends.includes(friendRequest[userId])){
                    res.status(403).json("you already sent a friend request to user")
@@ -99,10 +106,10 @@ router.post('/', async (req, res) => {
        if(req.body.userId != req.params._id) {
            try {
                const user = await User.findById(req.params._id);
-               const requestor = await User.findById(req.body.userId);
 
                if(user.friendRequests.includes(req.body.userId)) {
-                   await user.friendRequests.updateOne({$pop: {friendRequests: req.body.userId}})
+                   //await user.friendRequests.updateOne({$pop: {friendRequests: req.body.userId}})
+                   await user.friendRequests.deleteOne(req.body.userId);
                    res.status(200).json("You've successfully removed request");
                } else {
                    res.status(403).json("User is not in your pending request");
