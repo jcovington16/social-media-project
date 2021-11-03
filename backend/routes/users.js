@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
 
    //send friend request
 
-   router.put("/:_id/follow", async (req, res) => {
+   router.put("/:_id/friends", async (req, res) => {
        if(req.body.userId !== req.params._id){
            try{
                const user = await User.findById(req.params._id);
@@ -71,15 +71,15 @@ router.post('/', async (req, res) => {
 
    //
 
-   router.delete("/:_id/follow", async(req, res) => {
+   router.delete("/:_id/friends", async(req, res) => {
        if(req.body.userId != req.params._id) {
            try{
                const user = await User.findById(req.params._id);
                const friend = await User.findById(req.body.userId);
             
                if(user.friends.includes(req.body.userId)){
-                await user.friends.updateOne({$pop: {friends: req.body.userId}});
-                await friend.friends.updateOne({$pop: {friends: req.params._id}});
+                await user.updateOne({$pull: {friends: req.body.userId}});
+                await friend.updateOne({$pull: {friends: req.params._id}});
                 res.status(200).json("You've successfully removed friend");
                } else {
                    res.status(403).json("User is not in your friends list.");
@@ -97,15 +97,14 @@ router.post('/', async (req, res) => {
                const user = await User.findById(req.params._id);
 
                if(user.friendRequests.includes(req.body.userId)) {
-                   //await user.friendRequests.updateOne({$pop: {friendRequests: req.body.userId}})
-                   await user.friendRequests.deleteOne(req.body.userId);
+                   await user.updateOne({$pull: {friendRequests: req.body.userId}}) 
                    res.status(200).json("You've successfully removed request");
                } else {
                    res.status(403).json("User is not in your pending request");
                }
 
            } catch(err) {
-               res.status(500).json(err);
+               res.status(500).json(`Error: ${err}`);
            }
        }
    })
