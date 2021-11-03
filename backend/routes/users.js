@@ -54,9 +54,9 @@ router.post('/', async (req, res) => {
            try{
                const user = await User.findById(req.params._id);
                const currentUser = await User.findById(req.body.userId);
-               if(!user.followers.includes(req.body.userId)){
+               if(!user.friends.includes(req.body.userId)){
                     await user.updateOne({$push: {friendRequests: req.body.userId}});
-                    await currentUser.updateOne({$push: {followers: req.body.userId}});
+                    await currentUser.updateOne({$push: {friends: req.body.userId}});
                     res.status(200).json("user has sent friend request");
                }else{
                    res.status(403).json('you are already friends with this user')

@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, unique: true, required: true, minlength: 5, maxlength: 30 },
     username: {type: String, unique: true, required: true, minlength: 5, maxlength: 15},
     password: { type: String, required: true, maxlength: 1024, minlength: 5 },
-    followers: {type: [], default: [] },
+    friends: {type: [], default: [] },
     friendRequests: {type: [], default: []},
     dateJoined: {type: Date, default: Date.now()},
     online: {type: Boolean, default: false},
