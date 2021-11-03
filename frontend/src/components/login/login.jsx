@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-
 //This is our login form
 
-const Login = () => {
+function Login() {
 
     const [login, setLogin] = useState({
         email: "",
@@ -21,15 +20,15 @@ const Login = () => {
         event.preventDefault();
         axios.post('http://localhost:5001/api/auth/', login)
             .then (response => {
-                localStorage.setItem('token', response.data);
+                const responseData = response.data
+                localStorage.setItem('token', responseData);
                 window.location='/home';              
             })
             
     }
-    
     return (
         <div>
-             <form onSubmit={(event)=>handleSubmit(event)}>
+             <form onSubmit={handleSubmit}>
                 <h3>Sign In</h3>
 
                 <div className="form-group">
