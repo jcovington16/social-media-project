@@ -53,12 +53,15 @@ router.post('/', async (req, res) => {
        if(req.body.userId !== req.params._id){
            try{
                const user = await User.findById(req.params._id);
-               const currentUser = await User.findById(req.body.userId);
+               const requester = await User.findById(req.body.userId);
                if(!user.friends.includes(req.body.userId)){
-                    await user.updateOne({$push: {friendRequests: req.body.userId}});
-                    await currentUser.updateOne({$push: {friends: req.body.userId}});
+                    await user.updateOne({$push: {friendRequest: req.body.userId}});
+                    await requester.updateOne({$push: {friends: req.body.userId}});
                     res.status(200).json("user has sent friend request");
-               }else{
+               }if(user.friends.includes(friendRequest[userId])){
+                   res.status(403).json("you already sent a friend request to user")
+               }
+               else{
                    res.status(403).json('you are already friends with this user')
                }
            }catch(err){
@@ -69,7 +72,8 @@ router.post('/', async (req, res) => {
        }
    });
 
-   //
+   //accept friend request
+
 
    router.delete("/:_id/follow", async(req, res) => {
        if(req.body.userId != req.params._id) {
