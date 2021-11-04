@@ -57,15 +57,16 @@ router.post('/', async (req, res) => {
 
                if(!user.friends.includes(req.body.userId)){
                     await user.updateOne({$push: {friendRequests: req.body.userId}});
+
                     return res.status(200).json("user has sent friend request");
-               }else if(user.friendRequests.includes(req.body.userId)){
+               }if(user.friends.includes(friendRequest[userId])){
                    return res.status(403).json("you already sent a friend request to user")
                }
                else{
-                   return res.status(403).json('you are already friends with this user')
+                  return res.status(403).json('you are already friends with this user')
                }
            }catch(err){
-               return res.status(500).json(`Error: ${err}`);
+               return res.status(500).json(err);
            }
        }else{
            return res.status(403).json("you can't send yourself a friend request");
@@ -88,7 +89,7 @@ router.post('/', async (req, res) => {
                    return res.status(403).json("you are already friends");
                }
            }catch(err){
-               return res.status(500).json(`Error: ${err}`);
+            return res.status(500).json(`Error: ${err}`);
            }
        }
    });

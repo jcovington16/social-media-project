@@ -71,6 +71,20 @@ router.put("/:_id/like", async(req,res) =>{
 });
 
 
+//get all post from friends
+router.get("/:_id/friends/post", async(req,res) =>{
+    try{
+        const user = await User.findById(req.params._id);
+        const friendsList = await Promise.all(
+            user.friends.map((friendId) => {
+                return Post.find({userId: friendId});
+            })
+        );
+        return res.json(friendsList.concat(...friendsList))
+    }catch(err){
+        return res.status(500).json(err);
+    }
+});
 
 
 
