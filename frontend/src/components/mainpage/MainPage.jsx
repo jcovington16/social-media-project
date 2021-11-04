@@ -1,24 +1,21 @@
-import React from 'react'
-import Navbar from '../navbar/Navbar';
-import Sidebar from '../sidebar/Sidebar';
-import Posts from '../posts/Posts';
+import React from 'react';
 import './MainPage.css';
+import Navbar from '../navbar/Navbar';
+import Postings from '../postings/Postings';
+import SideBar from '../sidebar/SideBar';
 
-function MainPage() {
+const MainPage = ({user}) =>{
     return (
-        <div>
-            <div>
-                <Navbar/>
-            </div>
-
+        <div className="App">
+            <Navbar user={user}/>
+            <p>Hi, {user.name}!</p>
             <div className="main__page">
-                <Sidebar/>
-                <Posts/>
-            </div>
+                <SideBar user={user}/>
+                <Postings />
 
-            
+            </div>
         </div>
     )
 }
 
-export default MainPage
+export default MainPage;
