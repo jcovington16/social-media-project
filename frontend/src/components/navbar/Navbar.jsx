@@ -12,7 +12,7 @@ const Navbar = ({user}) => {
                     <Link to='/home'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/profile' >Profile</Link>
+                    <Link to='/profile'  >Profile</Link>
                 </li>    
                 
                 {!user &&

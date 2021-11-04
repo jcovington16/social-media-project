@@ -41,7 +41,7 @@ function App() {
         />  
         <Route path='/register' component={Register} />
         <Route path='/' exact component={Login} />
-        <Route path='/profile' render={(props) => <Profile user={user}/>} />
+        <Route path='/profile' render={() => <Profile user={user} />} />
         <Route path='/not-found' component={NotFound} />
         <Route path='/logout' component={Logout} />
       </Switch>

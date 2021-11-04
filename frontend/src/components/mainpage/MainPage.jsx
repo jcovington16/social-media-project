@@ -8,10 +8,11 @@ const MainPage = ({user}) =>{
     return (
         <div className="App">
             <Navbar user={user}/>
-            
+            <p>Hi, {user.name}!</p>
             <div className="main__page">
                 <SideBar user={user}/>
                 <Postings />
+
             </div>
         </div>
     )

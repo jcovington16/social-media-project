@@ -14,10 +14,7 @@ router.get('/', async (req,res) => {
 
 router.put('/:id/profile', async (req, res) => {
     try {
-    const { error } = validate(req.body);
-    if (error) return res.status(400).send(error);
-    const user = await User.findByIdAndUpdate(
-    req.params.id,
+    const user = await User.findByIdAndUpdate(req.params.id,
     {
     profileImg: req.body.profileImg,
     profileBio:req.body.profileBio,
