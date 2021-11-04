@@ -7,8 +7,8 @@ import Register from './components/register/Register';
 import MainPage from './components/mainpage/MainPage';
 import Profile from './components/profile/profile';
 import NotFound from './components/not-found/NotFound';
-import jwtDecode from 'jwt-decode';
 import Logout from './components/logout/Logout';
+import jwtDecode from 'jwt-decode';
 
 
 function App() {
