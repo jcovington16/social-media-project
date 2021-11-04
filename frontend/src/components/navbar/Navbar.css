@@ -12,9 +12,10 @@
     padding-left:25%;
     padding-right:25%;
   }
-  .navbar a {
-    text-decoration: none;
-font-size: medium;
-font-weight: bolder;
-color: white;
+  
+.navbar a {
+  text-decoration: none;
+  font-size: medium;
+  font-weight: bolder;
+  color: white;
   }

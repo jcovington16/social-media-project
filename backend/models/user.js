@@ -13,13 +13,9 @@ const userSchema = new mongoose.Schema({
     friendRequests: {type: [], default: []},
     dateJoined: {type: Date, default: Date.now()},
     online: {type: Boolean, default: false},
-<<<<<<< HEAD
-    profileImg: {type: Buffer, contentType: String}
-=======
     profileImg: {type: Buffer},
     profileBio:{type: String},
     location: {type:String}
->>>>>>> Bethany
 })
 
 userSchema.methods.generateAuthToken = function() {

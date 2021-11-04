@@ -34,14 +34,14 @@ const Profile = ({user}) =>  {
 
             </div>
             <form>
-                <div class="form-outline">
-                    <input type="text" id="userLocation" class="form-control" />
-                    <label class="form-label" for="userLocation">Location</label>
+                <div className="form-outline">
+                    <input type="text" id="userLocation" className="form-control" />
+                    <label className="form-label" htmlFor="userLocation">Location</label>
                 </div>
                 <div className="row">
-                <div class="form-outline">
+                <div className="form-outline">
                 <textarea></textarea>
-                    <label class="form-label" for="profileBio">Tell Us About Yourself</label>
+                    <label className="form-label" htmlFor="profileBio">Tell Us About Yourself</label>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block">Submit</button>
             </div>

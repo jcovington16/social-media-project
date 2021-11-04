@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-
-function Navbar() {
-    return (
-        <div>
-            <h1>This is the navbar</h1>
-        </div>
-    )
-}
-
-export default Navbar;
-=======
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
@@ -52,4 +38,3 @@ const Navbar = ({user}) => {
 }
 
 export default Navbar;
->>>>>>> Bethany
