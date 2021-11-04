@@ -13,7 +13,25 @@ router.get('/', async (req,res) => {
         return res.send(users);
     });
 
-
+router.put('/:id/profile', async (req, res) => {
+    try {
+    const user = await User.findByIdAndUpdate(req.params.id,
+    {
+    profileImg: req.body.profileImg,
+    profileBio:req.body.profileBio,
+    location: req.body.location
+    },
+    { new: true }
+    );
+    if (!user)
+    return res.status(400).send(`The user with id "${req.params.id}" d
+    oes not exist.`);
+    await user.save();
+    return res.send(user);
+    } catch (ex) {
+    return res.status(500).send(`Internal Server Error: ${ex}`);
+    }
+    });
 
 
 router.post('/', async (req, res) => {

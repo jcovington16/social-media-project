@@ -27,9 +27,9 @@ function Register() {
     return (
         <div>
                 
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={(event) => handleSubmit(event)} >
                 <div>
-                    <h3>Sign Up</h3>
+                    <h3>Register</h3>
                     <label>Name</label>
                     <input type="text"  placeholder="Name"  name="name" value={regform.name} onChange={handleChange} />
                 </div>
@@ -50,7 +50,7 @@ function Register() {
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered?<a href="./login">Sign in</a>
+                    Already registered?<a href="./">Sign in</a>
                 </p>
                 </div>
             </form>  
