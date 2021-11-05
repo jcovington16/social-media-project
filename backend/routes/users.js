@@ -5,11 +5,18 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 
-router.get('/', async (req,res) => {
-    const users = await User.find();
-        if(!users)
+router.get('/:id/profile', async (req,res) => {
+    const user = await User.findById(req.params.id);
+        if(!user)
         return res.status(400).send('No Users');
-        return res.send(users);
+        return res.send(user);
+    });
+
+router.get('/', async (req,res) => {
+    const user = await User.find();
+        if(!user)
+        return res.status(400).send('No Users');
+        return res.send(user);
     });
 
 router.put('/:id/profile', async (req, res) => {
