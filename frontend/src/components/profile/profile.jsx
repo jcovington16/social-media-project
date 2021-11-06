@@ -20,12 +20,16 @@ const Profile = ({user}) =>  {
             <Navbar user={user}/>
             {user && <div className="container">
            
-            <div className="col-6 bio-col">
+            <div className="col bio-col">
                     <img src={test} id="biopic" alt="" />
                     <h3><p><strong>{profile.name}</strong></p></h3>
-                    <p className="label" id="loc_label"><strong>    Location</strong> {profile.location}</p>
-                    <p className="label" id="join_label"><strong>     Member Since</strong>{(profile.dateJoined)}</p>
-                    <p className="label" id="bio_label"><strong>     About Me</strong>{profile.profileBio}</p>
+                    <span className="label" id="loc_label"><strong></strong></span> <span id="loc_text">{profile.location}</span>
+                    <div className="row">
+                    <div className="col label" id="join_label"><strong>Member Since</strong></div><div className="col" id="date_text">{(profile.dateJoined)}</div>
+                    </div>   
+                    <div className="row">
+                    <div className="col label" id="bio_label"><strong>About Me</strong></div><div className="col" id="bio_text">{profile.profileBio}</div>
+                    </div>
             </div>
             
         </div>}

@@ -1,9 +1,26 @@
 #biopic {
     width:200px;
     height: 200px;
-    display:inline-block;
+    display:block;
     border-radius: 50%;
     border-color:black;
-    border-width:thick
+    border-width:thick;
+    margin:20px
+}
+.container {
+    max-width: 30%
+}
+.label {
+    margin: right 10px;
+}
+span {
+    display:inline-block;
+justify-content: right;
+}
+#loc_text {
+    text-align: center ;
 }
 
+.bio_col {
+   justify-items: left ;
+}
