@@ -29,7 +29,7 @@ const Friends = ({user}) => {
                 <div className="friendsList">
                     <h3>Friends List</h3>
 
-                    {//TODO: Need to implement a map or for loop}
+                    {/* TODO: Need to implement a map or for loop */}
                     <ul>
                         <li>
                             {friends[0]}
