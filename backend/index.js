@@ -13,9 +13,17 @@ app.use(express.json());
 app.use('/api/auth', auth);
 app.use('/api/users', users);
 app.use('/api/posts', posts);
+app.use('/public', express.static('public'));
 
 
 const port = process.env.PORT || 5001;
 app.listen(port, () => {
     console.log(`Server started on port: ${port}`);
 })
+
+// app.use((req, res, next) => {
+//     // Error goes via 'next()' method
+//     setImmediate(() => {
+//         next(new Error('Something went wrong'))
+//     });
+// });

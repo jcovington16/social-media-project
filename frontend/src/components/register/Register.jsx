@@ -18,9 +18,12 @@ function Register() {
       }
 
     const handleSubmit = (event) =>  {
-        // store the states in the form data
-        axios.post('http://localhost:5001/api/users/', regform);
         event.preventDefault();
+        // store the states in the form data
+        axios.post('http://localhost:5001/api/users/', regform)
+            .then(res => {
+                console.log(res.data);
+            },[])
 
         }
 
