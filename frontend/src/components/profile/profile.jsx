@@ -26,7 +26,6 @@ const Profile = ({user}) =>  {
                     <p className="label" id="loc_label"><strong>    Location</strong> {profile.location}</p>
                     <p className="label" id="join_label"><strong>     Member Since</strong>{(profile.dateJoined)}</p>
                     <p className="label" id="bio_label"><strong>     About Me</strong>{profile.profileBio}</p>
-<EditProfile user={user}/>
             </div>
             
         </div>}

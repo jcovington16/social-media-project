@@ -4,41 +4,53 @@ import React, {useState} from 'react';
 
 
 function EditProfile  ({user})  {
-const [profileBio,setProfileBio] = useState('');
-const [location,setLocation]= useState('');
+
+const [profile,setProfile] = useState({
+    profileBio : '',
+    location: ''
+      });
+
+
 
 const handleChange = (event) => {
-    setProfileBio(profileBio);
-    setLocation(location);
-    
-    };
-    const handleSubmit = (event) =>  {
+    setProfile({
+    ...profile , [event.target.name]: event.target.value
+    });
+  }
+
+const handleSubmit = (event) =>  {
         // store the states in the form data
-        event.preventDefault();
-        axios.put(`http://localhost:5001/api/users/${user._id}/profile`, {
-            profileBio: profileBio,
-            location: location
-        }      
-         )}
-     //    .then ((response) => {
-           
-    return (
-        <div>
-            
-           Make Changes to your Profile 
-            <form className="form-group" onSubmit={(event)=>handleSubmit(event)}>
-          
-            
-            <input type="text" id="location" className="form-control" name="profileBio" value={profileBio} onChange={handleChange} />
-            <label className="form-label" htmlFor="location">Your Location (City, State):</label>
-            
-           
-            <textarea className="form-control" id="textArea" rows="4" name="location" value={location} onChange={handleChange} />
-            <label className="form-label" htmlFor="textArea"> Tell us Something about Yourself:</label>
-            </form>
-            <button onClick={(event)=>{handleSubmit(event)}}type="submit">Submit</button>
+    event.preventDefault();
+    axios.put(`http://localhost:5001/api/users/${user._id}/profile`, profile)
+    .then ((response) => console.log(response))
+    .catch ((error) => console.log (error))
+ }
     
-</div>
+           
+    return ( 
+        <form onSubmit={handleSubmit}>
+          <input 
+          type="text" 
+          id="location"
+          name='location' 
+          value={profile.location}           onChange={handleChange} 
+          />
+            <label 
+            className="form-label" 
+            htmlFor="location">Your Location (City, State):</label>
+            
+            <textarea 
+            id="textArea" 
+            rows="4" 
+            name= 'profileBio' 
+            value={profile.profileBio} 
+            onChange={handleChange} 
+            />
+            <label className="form-label" 
+            htmlFor="textArea"> Tell us Something about Yourself:</label>
+            <button type="submit">Submit</button>
+        </form>
+             
 );
 }
 
