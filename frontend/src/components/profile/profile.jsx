@@ -1,51 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Navbar from "../navbar/Navbar";
 import "./profile.css";
 import test from './test.jpg';
-import { TextareaAutosize } from '@material-ui/core';
+import EditProfile from '../EditProfile/EditProfile';
 
 const Profile = ({user}) =>  {
 
-    // const [profileImg,setProfileImg] = useState();
-    // const [biotext,setBiotext] = useState('...Anything you would like everyone to know');
-    // const [location,setLocation]= useState('right here!');
-    
-    // const handleChange = (event) => {
-    //     setProfileImg(profileImg);
-    //     setBiotext(biotext);
-    //     setLocation(location);
-    //     };
-    //     const handleSubmit = (event) =>  {
-    //         // store the states in the form data
-    //         event.preventDefault();
-    //         axios.put(`localhost:5001/api/users/${user._id}/profile`)      
-    //             }
+    const [profile,setProfile] = useState('');
+    useEffect (() => {
+    axios.get(`http://localhost:5001/api/users/617a22627b66258c2ecc429c/profile`)      
+    .then ((response) => {
+    setProfile(response.data)
+    }).catch(err => console.log(err))
+    }, [])
+           
     return (
         <div>
             <Navbar user={user}/>
             {user && <div className="container">
            
-            <div className="col-6 bio-col">
+            <div className="col bio-col">
                     <img src={test} id="biopic" alt="" />
+
+                    <h3><p><strong>{profile.name}</strong></p></h3>
+                    <span className="label" id="loc_label"><strong></strong></span> <span id="loc_text">{profile.location}</span>
+                    <div className="row">
+                    <div className="col label" id="join_label"><strong>Member Since</strong></div><div className="col" id="date_text">{(profile.dateJoined)}</div>
+                    </div>   
+                    <div className="row">
+                    <div className="col label" id="bio_label"><strong>About Me</strong></div><div className="col" id="bio_text">{profile.profileBio}</div>
+                    </div>
+
                     <h3><span><strong>{user.name}</strong></span></h3>
                     <p>Member Since {user.dateJoined}</p>
                     {user.profileBio}
 
             </div>
-            <form>
-                <div className="form-outline">
-                    <input type="text" id="userLocation" className="form-control" />
-                    <label className="form-label" htmlFor="userLocation">Location</label>
-                </div>
-                <div className="row">
-                <div className="form-outline">
-                <textarea></textarea>
-                    <label className="form-label" htmlFor="profileBio">Tell Us About Yourself</label>
-                </div>
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
-            </div>
-            </form>
+           
         </div>}
     </div>
     )
