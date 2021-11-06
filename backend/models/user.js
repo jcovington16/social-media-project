@@ -13,8 +13,9 @@ const userSchema = new mongoose.Schema({
     friendRequests: {type: [], default: []},
     dateJoined: {type: Date, default: Date.now()},
     online: {type: Boolean, default: false},
-    profileImg: {type: Buffer},
-    profileBio:{type: String},
+    posts: {type: [postSchema], default: []},
+    profileImg: {type: String},
+    profileBio:{type: String },
     location: {type:String}
 })
 

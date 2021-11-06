@@ -1,5 +1,4 @@
 import {Switch, Route} from 'react-router-dom';
-//import {Redirect} from 'react-router';
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Login from './components/login/login';
@@ -8,6 +7,8 @@ import MainPage from './components/mainpage/MainPage';
 import Profile from './components/profile/profile';
 import NotFound from './components/not-found/NotFound';
 import Logout from './components/logout/Logout';
+import Friends from './components/friends/Friends';
+import Requests from './components/requests/Requests';
 import jwtDecode from 'jwt-decode';
 
 
@@ -44,6 +45,8 @@ function App() {
         <Route path='/profile' render={() => <Profile user={user} />} />
         <Route path='/not-found' component={NotFound} />
         <Route path='/logout' component={Logout} />
+        <Route path='/friendsList' render={() => <Friends user={user}/>} />
+        <Route path='/requests' render={() => <Requests user={user} />} />
       </Switch>
     </div>
   );

@@ -1,7 +1,6 @@
-
 //This is our logout form
 
-function Logout() {
+const Logout = () => {
     localStorage.removeItem('token');
     window.location="/";
      
