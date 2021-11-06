@@ -13,8 +13,9 @@ const SideBar = ({user}) => {
 
             {/* working with multer to pull this off */}
             <img src='' alt=''/>
-
-            <SideRow Icon={AccountCircleIcon} title="Edit Profile" />
+            <Link to='/edit-profile' user={user} style={{textDecoration: 'none'}}>
+                <SideRow Icon={AccountCircleIcon} title="Edit Profile" />
+            </Link>
 
             <Link to='/friendsList' user={user} style={{textDecoration: 'none'}}>
                 <SideRow Icon={PeopleIcon} title="Friends" />

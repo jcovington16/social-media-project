@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, {useState} from 'react';
- 
+import Navbar from '../navbar/Navbar';
+import SideBar from '../sidebar/SideBar';
+import './EditProfile.css';
 
 
-function EditProfile  ({user})  {
+const EditProfile  = ({user}) => {
 
 const [profile,setProfile] = useState({
     profileBio : '',
@@ -28,28 +30,49 @@ const handleSubmit = (event) =>  {
     
            
     return ( 
-        <form onSubmit={handleSubmit}>
-          <input 
-          type="text" 
-          id="location"
-          name='location' 
-          value={profile.location}           onChange={handleChange} 
-          />
-            <label 
-            className="form-label" 
-            htmlFor="location">Your Location (City, State):</label>
-            
-            <textarea 
-            id="textArea" 
-            rows="4" 
-            name= 'profileBio' 
-            value={profile.profileBio} 
-            onChange={handleChange} 
-            />
-            <label className="form-label" 
-            htmlFor="textArea"> Tell us Something about Yourself:</label>
-            <button type="submit">Submit</button>
-        </form>
+      <div>
+        <div>
+          <Navbar user={user}/>
+        </div>
+
+        <div className="side__bar">
+          <SideBar className="side__component"/>
+
+          <div className="editProfile">
+
+            <h3>Edit Profile</h3>
+
+            <form onSubmit={handleSubmit}>
+              <input 
+                type="text" 
+                id="location"
+                name='location' 
+                value={profile.location}
+                onChange={handleChange} 
+              />
+                <label 
+                  className="form-label" 
+                  htmlFor="location">Your Location (City, State):
+                </label>
+                
+                <textarea 
+                  id="textArea" 
+                  rows="4" 
+                  name= 'profileBio' 
+                  value={profile.profileBio} 
+                  onChange={handleChange} 
+                />
+                <label className="form-label" 
+                htmlFor="textArea"> Tell us Something about Yourself:</label>
+                <button type="submit">Submit</button>
+            </form>
+          </div>
+
+        </div>
+
+
+
+      </div>
              
 );
 }

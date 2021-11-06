@@ -149,7 +149,7 @@ router.put("/:_id/friends", async (req, res) => {
             const friend = await User.findById(req.body.userId);
 
             if(!user.friends.includes(req.body.userId)){
-                await user.updateOne({$push: {friendRequests: friend.name}});
+                await user.updateOne({$push: {friendRequests: {name:friend.name, id: friend._id}}});
 
                 return res.status(200).json("user has sent friend request");
             }if(user.friendsRequests.includes(friend.name)){
@@ -173,9 +173,9 @@ router.put("/:_id/accept", async (req, res) => {
             const user = await User.findById(req.params._id);
             const requester = await User.findById(req.body.userId);
             if(!user.friends.includes(requester)){
-                await user.updateOne({$push: {friends: requester.name}});
-                await user.updateOne({$pull: {friendRequests: requester.name}});
-                await requester.updateOne({$push: {friends: user}});
+                await user.updateOne({$push: {friends: {name: requester.name, id: requester._id}}});
+                await user.updateOne({$pull: {friendRequests: {name: requester.name, id: requester.name}}});
+                await requester.updateOne({$push: {friends: {name: user.name, id: user._id}}});
                 return res.status(200).json("accepted friend request")
             }
             else{
@@ -195,8 +195,8 @@ router.delete("/:_id/friends", async(req, res) => {
             const friend = await User.findById(req.body.userId);
         
             if(user.friends.includes(req.body.userId)){
-            await user.updateOne({$pull: {friends: req.body.userId}});
-            await friend.updateOne({$pull: {friends: req.params._id}});
+            await user.updateOne({$pull: {friends: {name: friend.name, id: friend._id}}});
+            await friend.updateOne({$pull: {friends: {name: user.name, id: user._id}}});
             return res.status(200).json("You've successfully removed friend");
             } else {
                 return res.status(403).json("User is not in your friends list.");

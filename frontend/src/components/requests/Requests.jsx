@@ -10,6 +10,7 @@ const Requests = ({user}) => {
     const [users, setUsers] = useState('');
     const url = user ? `http://localhost:5001/api/users/${user._id}/requests` : '';
 
+    
     useEffect(() => {
         axios.get(url)
             .then(res => {
