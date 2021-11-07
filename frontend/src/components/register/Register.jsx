@@ -23,6 +23,7 @@ function Register() {
         event.preventDefault();
         axios.post('http://localhost:5001/api/users/', regform);
         window.location='/'; 
+
         }
 
     return (

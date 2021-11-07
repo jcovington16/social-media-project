@@ -1,0 +1,13 @@
+.side__bar {
+    display: flex;
+}
+
+.side__component {
+    flex: 0.1;
+}
+
+.friendRequests {
+    flex: 0.8;
+    margin-top: 30px;
+    margin-left: 20px;
+}

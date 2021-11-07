@@ -1,10 +1,11 @@
 import React from 'react';
 import './Postings.css';
+import Posts from '../posts/Posts'
 
-const Postings = () => {
+const Postings = ({user}) => {
     return (
         <div className="postings">
-            <h3>What's New</h3>
+            <Posts user={user}/>
 
             
         </div>
