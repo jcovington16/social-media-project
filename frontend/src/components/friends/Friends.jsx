@@ -1,14 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../navbar/Navbar';
-import SideBar from '../sidebar/Sidebar';
+import SideBar from '../sidebar/SideBar';
 import axios from 'axios';
 import './Friends.css';
 
 const Friends = ({user}) => {
 
-    const [friends, setFriends] = useState('');
-    const [users, setUsers] = useState('');
+    const [friends, setFriends] = useState([]);
+
     const url = user ? `http://localhost:5001/api/users/${user._id}/friends` : '';
+
+    const handleRemove = (e) => {
+        e.preventDefault();
+        const remove = user ? `http://localhost:5001/api/users/${user._id}/friends` : '';
+        axios.delete(remove);
+    }
 
     useEffect(() => {
         axios.get(url)
@@ -29,15 +35,16 @@ const Friends = ({user}) => {
                 <div className="friendsList">
                     <h3>Friends List</h3>
 
-                    {/* TODO: Need to implement a map or for loop */}
-                    <ul>
-                        <li>
-                            {friends[0]}
-                        </li>
-                        <li>
-                            {friends[1]}
-                        </li>
-                    </ul>
+                    <div>
+                        {friends.map((info) => {
+                            return (
+                                <ul key={info.id}>
+                                    <li>{info.name} <button value={info.id} onClick={(e) => handleRemove(e)}>remove</button></li>
+                                </ul>
+                            )
+                        })}
+                    </div>
+
                 </div>
                 
             </div>

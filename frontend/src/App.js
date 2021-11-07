@@ -9,9 +9,9 @@ import NotFound from './components/not-found/NotFound';
 import Logout from './components/logout/Logout';
 import Friends from './components/friends/Friends';
 import Requests from './components/requests/Requests';
-import EditProfile from './components/EditProfile/editprofile';
+import EditProfile from './components/editprofile/EditProfile';
 import jwtDecode from 'jwt-decode';
-import EditProfile from './components/EditProfile/EditProfile';
+
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
         <Route path='/logout' component={Logout} />
         <Route path='/friendsList' render={() => <Friends user={user}/>} />
         <Route path='/requests' render={() => <Requests user={user} />} />
-        <Route path='/edit-profile' render={() => <EditProfile user={user} />} />
+        <Route path='/EditProfile' render={() => <EditProfile user={user} />} />
       </Switch>
     </div>
   );

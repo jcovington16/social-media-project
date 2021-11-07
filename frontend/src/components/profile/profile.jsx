@@ -4,8 +4,6 @@ import Navbar from "../navbar/Navbar";
 import "./profile.css";
 import moment from 'moment';
 import test from './test.jpg';
-import EditProfile from '../EditProfile/editprofile';
-
 
 const  Profile = ({user}) => {
 

@@ -13,15 +13,15 @@ const SideBar = ({user}) => {
 
             {/* working with multer to pull this off */}
             <img src='' alt=''/>
-            <Link to='/edit-profile' user={user} style={{textDecoration: 'none'}}>
+            <Link to='/EditProfile' style={{textDecoration: 'none'}}>
                 <SideRow Icon={AccountCircleIcon} title="Edit Profile" />
             </Link>
 
-            <Link to='/friendsList' user={user} style={{textDecoration: 'none'}}>
+            <Link to='/friendsList' style={{textDecoration: 'none'}}>
                 <SideRow Icon={PeopleIcon} title="Friends" />
             </Link>
 
-            <Link to='/requests' user={user} style={{textDecoration: 'none'}}>
+            <Link to='/requests' style={{textDecoration: 'none'}}>
                 <SideRow Icon={GroupAddIcon} title="Requests" />
             </Link>
             <hr />

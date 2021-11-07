@@ -5,14 +5,17 @@
     border-style:groove;
     background-color:whitesmoke ;
     border-radius: 25px;
-    margin:10%
+    margin:10%;
+    flex: 0.8;
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
 .border-label-flt {
     display: block;
     position: relative;
   }
-  .border-label-flt label, .border-label-flt > span {
+.border-label-flt label, .border-label-flt > span {
     position: absolute;
     left: 0;
     top: 0;
@@ -27,7 +30,7 @@
     line-height: 1;
     padding: 0 1px;
   }
-  .border-label-flt label::after, .border-label-flt > span::after {
+.border-label-flt label::after, .border-label-flt > span::after {
     content: " ";
     display: block;
     position: absolute;
@@ -38,47 +41,47 @@
     right: -.2em;
     z-index: -1;
   }
-  .border-label-flt .form-control::-webkit-input-placeholder {
+.border-label-flt .form-control::-webkit-input-placeholder {
     opacity: 1;
     -webkit-transition: all .2s;
             transition: all .2s;
   }
-  .border-label-flt .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+.border-label-flt .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
     opacity: 0;
   }
-  .border-label-flt .form-control:placeholder-shown:not(:focus) + * {
+.border-label-flt .form-control:placeholder-shown:not(:focus) + * {
     font-size: 150%;
     opacity: .5;
     top: .3em;
   }
   
-  .input-group .border-label-flt {
+.input-group .border-label-flt {
     display: table-cell;
   }
-  .input-group .border-label-flt .form-control {
+.input-group .border-label-flt .form-control {
     border-radius: 0.25rem;
   }
-  .input-group .border-label-flt:not(:last-child), .input-group .border-label-flt:not(:last-child) .form-control {
+.input-group .border-label-flt:not(:last-child), .input-group .border-label-flt:not(:last-child) .form-control {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
     border-right: 0;
   }
-  .input-group .border-label-flt:not(:first-child), .input-group .border-label-flt:not(:first-child) .form-control {
+.input-group .border-label-flt:not(:first-child), .input-group .border-label-flt:not(:first-child) .form-control {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
   
-  .form-control:focus {
+.form-control:focus {
     color: #804000;
     background-color: #fff;
     border-color: #006633;
     box-shadow: 0 0 0 0.2rem rgba(0, 102, 51, 0.25);
   }
-  .form-control {
+.form-control {
       margin:10px;
       width: 75%;
   }
-  #submit {
+#submit {
       margin: 10px;
       background-color:dimgray
   }
@@ -93,8 +96,6 @@
 }
 
 .editProfile {
-    flex: 0.8;
-    margin-top: 30px;
-    margin-left: 20px;
+
 }
 

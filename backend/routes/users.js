@@ -194,16 +194,16 @@ router.delete("/:_id/friends", async(req, res) => {
             const user = await User.findById(req.params._id);
             const friend = await User.findById(req.body.userId);
         
-            if(user.friends.includes(req.body.userId)){
+            //if(user.friends.findOne({ id: friend._id})){
             await user.updateOne({$pull: {friends: {name: friend.name, id: friend._id}}});
             await friend.updateOne({$pull: {friends: {name: user.name, id: user._id}}});
             return res.status(200).json("You've successfully removed friend");
-            } else {
-                return res.status(403).json("User is not in your friends list.");
-            }
+            // } else {
+            //     return res.status(403).json("User is not in your friends list.");
+            // }
 
         } catch(err) {
-            return res.status(500).json(err);
+            return res.status(500).json(`ERROR: ${err}`);
         }
     }
 })
