@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import './Register.css';
 
 // This is our register form
 
@@ -18,44 +19,47 @@ function Register() {
       }
 
     const handleSubmit = (event) =>  {
-        event.preventDefault();
         // store the states in the form data
-        axios.post('http://localhost:5001/api/users/', regform)
-            .then(res => {
-                console.log(res.data);
-            },[])
+        event.preventDefault();
+        axios.post('http://localhost:5001/api/users/', regform);
+        window.location='/'; 
 
         }
 
     return (
         <div>
-                
             <form onSubmit={(event) => handleSubmit(event)} >
-                <div>
-                    <h3>Register</h3>
-                    <label>Name</label>
-                    <input type="text"  placeholder="Name"  name="name" value={regform.name} onChange={handleChange} />
+                <h3>Register</h3>
+                    <div class="form-group input-group">
+                        <span class="border-label-flt">
+                        <input type="text" className="form-control" id="label-name" name="name" value={regform.name} onChange={handleChange}  placeholder="name"  required autofocus/>
+                        <label for="label-name">name</label>
+                        </span>
+                    </div> 
+                    <div class="form-group input-group">
+                        <span class="border-label-flt">
+                        <input type="email" className="form-control" id="label-email" name="email" value={regform.email} onChange={handleChange}  placeholder="email" required autofocus/>
+                        <label for="label-email">email address</label>
+                        </span>
+                    </div> 
+                   
+                <div class="form-group border-label-flt">
+                    <input type="password" id="label-password" class="form-control" name="password" value={regform.password} onChange={handleChange} placeholder="password" required/>
+                    <label for="label-password">password</label>
                 </div>
-
-                <div >
-                    <label>Email address</label>
-                    <input type="email"  placeholder="Enter email" name="email" value={regform.email} onChange={handleChange}/>
-                </div>
-
-                <div >
-                    <label>Password</label>
-                    <input type="password"  placeholder="Enter password" name="password" value={regform.password} onChange={handleChange} />
-                </div>
-
-                <div >
-                    <label>Username</label>
-                    <input type="text"  placeholder="Username" name="username" value={regform.username} onChange={handleChange}/>
-
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+   
+                 <div class="form-group input-group">
+                        <span class="border-label-flt">
+                        <input type="text" className="form-control" id="label-username" name="username" value={regform.username} onChange={handleChange}  placeholder="username"  required autofocus/>
+                        <label for="label-username">username</label>
+                        </span>
+                    </div>
+            
+                <button className="btn btn-primary btn-block" type="submit">Sign Up</button>
                 <p className="forgot-password text-right">
                     Already registered?<a href="./">Sign in</a>
                 </p>
-                </div>
+            
             </form>  
         </div>
     )

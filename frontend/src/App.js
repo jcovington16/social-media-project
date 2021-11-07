@@ -11,6 +11,7 @@ import Friends from './components/friends/Friends';
 import Requests from './components/requests/Requests';
 import EditProfile from './components/EditProfile/editprofile';
 import jwtDecode from 'jwt-decode';
+import EditProfile from './components/EditProfile/EditProfile';
 
 
 function App() {

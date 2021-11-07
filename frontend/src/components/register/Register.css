@@ -1,13 +1,3 @@
-#edit_profile {
-    max-width:30vw;
-    max-height:50vh;
-    padding: 5%;
-    border-style:groove;
-    background-color:whitesmoke ;
-    border-radius: 25px;
-    margin:10%
-}
-
 .border-label-flt {
     display: block;
     position: relative;
@@ -82,19 +72,4 @@
       margin: 10px;
       background-color:dimgray
   }
-
-
-.side__bar {
-    display: flex;
-}
-
-.side__component {
-    flex: 0.1;
-}
-
-.editProfile {
-    flex: 0.8;
-    margin-top: 30px;
-    margin-left: 20px;
-}
-
+  
