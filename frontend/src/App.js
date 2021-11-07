@@ -9,6 +9,7 @@ import Profile from './components/profile/profile';
 import NotFound from './components/not-found/NotFound';
 import Logout from './components/logout/Logout';
 import jwtDecode from 'jwt-decode';
+import EditProfile from './components/EditProfile/EditProfile';
 
 
 function App() {
@@ -43,7 +44,9 @@ function App() {
         <Route path='/' exact component={Login} />
         <Route path='/profile' render={() => <Profile user={user} />} />
         <Route path='/not-found' component={NotFound} />
+        <Route path='/EditProfile' render={() => <EditProfile user={user} />} />
         <Route path='/logout' component={Logout} />
+
       </Switch>
     </div>
   );

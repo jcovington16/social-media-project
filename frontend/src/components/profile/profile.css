@@ -24,3 +24,14 @@ justify-content: right;
 .bio_col {
    justify-items: left ;
 }
+.row  {
+    margin:30px;
+    font-size: 16pt;
+}
+#toprow  {
+margin-top:30px;
+
+
+}
+#join_label #biolabel {
+}
