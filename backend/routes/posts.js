@@ -77,12 +77,12 @@ router.get("/:_id/friends/post", async(req,res) =>{
         const user = await User.findById(req.params._id);
         const friendsList = await Promise.all(
             user.friends.map((friendId) => {
-                return Post.find({userId: friendId});
+                return Post.find({userId: friendId._id});
             })
         );
         return res.json(friendsList.concat(...friendsList))
     }catch(err){
-        return res.status(500).json(err);
+        return res.status(500).json(`ERROR : ${err}`);
     }
 });
 

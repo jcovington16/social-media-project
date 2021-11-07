@@ -2,7 +2,7 @@ import React from 'react';
 import './MainPage.css';
 import Navbar from '../navbar/Navbar';
 import Postings from '../postings/Postings';
-import SideBar from '../sidebar/SideBar';
+import SideBar from '../sidebar/Sidebar';
 
 const MainPage = ({user}) =>{
     return (
@@ -11,7 +11,7 @@ const MainPage = ({user}) =>{
             <p>Hi, {user.name}!</p>
             <div className="main__page">
                 <SideBar user={user}/>
-                <Postings />
+                <Postings user={user}/>
 
             </div>
         </div>

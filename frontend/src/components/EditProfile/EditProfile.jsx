@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import Navbar from '../navbar/Navbar';
-import SideBar from '../sidebar/SideBar';
+import SideBar from '../sidebar/Sidebar';
 import './EditProfile.css';
 
 

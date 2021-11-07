@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../navbar/Navbar';
-import SideBar from '../sidebar/SideBar';
+import SideBar from '../sidebar/Sidebar';
 import axios from 'axios';
 import './Friends.css';
 

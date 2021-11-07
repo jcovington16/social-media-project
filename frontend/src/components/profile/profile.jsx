@@ -3,7 +3,7 @@ import axios from 'axios';
 import Navbar from "../navbar/Navbar";
 import "./profile.css";
 import test from './test.jpg';
-import EditProfile from '../EditProfile/EditProfile';
+import EditProfile from '../EditProfile/editprofile';
 
 const Profile = ({user}) =>  {
 

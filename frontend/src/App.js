@@ -9,7 +9,7 @@ import NotFound from './components/not-found/NotFound';
 import Logout from './components/logout/Logout';
 import Friends from './components/friends/Friends';
 import Requests from './components/requests/Requests';
-import EditProfile from './components/editprofile/EditProfile';
+import EditProfile from './components/EditProfile/editprofile';
 import jwtDecode from 'jwt-decode';
 
 
