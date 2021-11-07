@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../navbar/Navbar';
 import axios from 'axios';
-import SideBar from '../sidebar/SideBar';
+import SideBar from '../sidebar/Sidebar';
 import './Requests.css';
 
 const Requests = ({user}) => {
