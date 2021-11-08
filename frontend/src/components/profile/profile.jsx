@@ -3,7 +3,7 @@ import axios from 'axios';
 import Navbar from "../navbar/Navbar";
 import "./profile.css";
 import moment from 'moment';
-import test from './test.jpg';
+import test from './test.jpeg';
 
 const  Profile = ({user}) => {
 
@@ -33,10 +33,6 @@ const  Profile = ({user}) => {
                     <div className="row" id="btmrow">
                     <div className="col-2 label" id="bio_label"><strong>About Me</strong></div><div className="col" id="bio_text">{profile.profileBio}</div>
                     </div>
-
-                    <h3><span><strong>{user.name}</strong></span></h3>
-                    <p>Member Since {user.dateJoined}</p>
-                    {user.profileBio}
 
             </div>
            
