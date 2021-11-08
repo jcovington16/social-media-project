@@ -3,7 +3,7 @@ const express = require('express');
 const auth = require('../middleware/auth');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const mongoos = require('mongoose');
+const mongoose = require('mongoose');
 const multer = require('multer');
 const uuidv4 = require('uuid');
 

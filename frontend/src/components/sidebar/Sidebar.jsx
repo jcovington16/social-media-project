@@ -1,5 +1,5 @@
 import React from 'react';
-import './SideBar.css';
+import './Sidebar.css';
 import SideRow from '../siderow/SideRow';
 import PeopleIcon from '@material-ui/icons/People';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';

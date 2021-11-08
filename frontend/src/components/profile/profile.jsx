@@ -39,7 +39,6 @@ const  Profile = ({user}) => {
                     <h3><span><strong>{user.name}</strong></span></h3>
                     <p>Member Since {user.dateJoined}</p>
                     {user.profileBio}
-
             </div>
            
         </div>}
